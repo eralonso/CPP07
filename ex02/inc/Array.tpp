@@ -6,7 +6,7 @@
 /*   By: eralonso <eralonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 16:47:36 by eralonso          #+#    #+#             */
-/*   Updated: 2023/09/24 17:51:39 by eralonso         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:50:31 by eralonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Array< T >::Array( const Array< T >& arr )
 {
 	this->_size = arr._size;
 	this->_arr = new T[ this->_size ]();
-	if ( this->_arr != NULL )
+	if ( this->_size != 0 )
 	{
 		for ( unsigned int i = 0; i < this->_size; i++ )
 			this->_arr[ i ] = arr._arr[ i ];
@@ -43,7 +43,7 @@ Array< T >::Array( const Array< T >& arr )
 template < typename T >
 Array< T >::~Array( void )
 {
-	if ( this->_arr != NULL )
+	if ( this->_size != 0 )
 		delete [] this->_arr;
 }
 
@@ -51,10 +51,10 @@ template < typename T >
 Array< T >&	Array< T >::operator=( const Array< T >& arr )
 {
 	this->_size = arr._size;
-	if ( this->_arr != NULL )
+	if ( this->_size != 0 )
 		delete [] this->_arr;
 	this->_arr = new T[ this->_size ]();
-	if ( this->_arr != NULL )
+	if ( this->_size != 0 )
 	{
 		for ( unsigned int i = 0; i < this->_size; i++ )
 			this->_arr[ i ] = arr._arr[ i ];
